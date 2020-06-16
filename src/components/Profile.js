@@ -3,7 +3,7 @@ import React from 'react'
 const Profile = (props) => {
     return (
         <div>
-            {props.userInfo}
+            <h1> Hello World! </h1>
         </div>
     )
 }

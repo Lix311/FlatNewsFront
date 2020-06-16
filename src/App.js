@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
 import MainContainer from './containers/MainContainer'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const articleUrl = 'http://localhost:3001/articles'
 const userUrl = 'http://localhost:3001/users'

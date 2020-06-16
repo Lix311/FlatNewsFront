@@ -14,7 +14,7 @@ class NavBar extends Component {
                     <div className='navlinks'>
                         <Link to="/home"> <h4>Home</h4> </Link>
                         <Link to="/favorites"> <h4>My Articles</h4> </Link>
-                        <h4>My Profile</h4>
+                        <Link to="/profile"> <h4>My Profile</h4> </Link>
                     </div>
                     
                 </div>
