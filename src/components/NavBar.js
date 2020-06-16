@@ -13,8 +13,12 @@ class NavBar extends Component {
                     <h1 className='title'>FlatNews</h1>
                     <div className='navlinks'>
                         <Link to="/home"> <h4>Home</h4> </Link>
-                        <Link to="/favorites"> <h4>My Articles</h4> </Link>
+                        {this.props.loggedIn 
+                            ? <Link to="/favorites"> <h4>My Articles</h4> </Link>
+                            : <Link to="/login"> <h4>My Articles</h4> </Link>
+                        }
                         <Link to="/profile"> <h4>My Profile</h4> </Link>
+                        <Link to="/login"><h4>Login</h4></Link>
                     </div>
                     
                 </div>

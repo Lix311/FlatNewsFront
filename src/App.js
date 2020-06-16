@@ -11,7 +11,8 @@ class App extends Component {
     articles: [],
     favoriteArticles: [],
     search: '',
-    userInfo: []
+    userInfo: [],
+    loggedIn: false 
   }
 
 componentDidMount(){
@@ -40,16 +41,27 @@ addToFavs = (article) => {
 }
 
 removeFromFavs = (article) => {
-  console.log('removing...', article)
   this.setState({favoriteArticles: this.state.favoriteArticles.filter(a => a !== article )})
+}
+
+loginHandler = (username,password) => {
+  
+  let matchingUser = this.state.userInfo.find(user => user.username === username)
+
+  if (matchingUser.pword === password){
+    this.setState({loggedIn: !this.state.loggedIn})
+  }
 }
 
 
 
   render() { 
+   console.log(this.state.userInfo)
     return (  
       <div>
         <MainContainer 
+          loggedIn={this.state.loggedIn}
+          login={this.loginHandler}
           removeFromFavs={this.removeFromFavs}
           addToFavs={this.addToFavs}
           favoriteArticles={this.state.favoriteArticles}

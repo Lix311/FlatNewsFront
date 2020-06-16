@@ -5,6 +5,7 @@ import Profile from '../components/Profile'
 import ArticleContainer from './ArticleContainer';
 import FavoriteContainer from './FavoriteContainer'
 import { Route, Switch } from 'react-router-dom'
+import Login from '../components/Login'
 
 class MainContainer extends Component {
     
@@ -15,7 +16,7 @@ class MainContainer extends Component {
                     searchArticle={this.props.searchArticle}
                     search={this.props.search}
                 />
-                <NavBar />
+                <NavBar loggedIn={this.props.loggedIn}/>
                 <Switch>
                     <Route 
                         exact path="/home" 
@@ -43,6 +44,15 @@ class MainContainer extends Component {
                             />
                         }
                     />
+                    <Route 
+                    exact path="/login" 
+                    render={()=> 
+                        <Login
+                            userInfo={this.props.userInfo}
+                            login={this.props.login}
+                        />
+                    }
+                />
                 </Switch>
            </div> 
         );
