@@ -31,6 +31,7 @@ code {
 }
 
 .navlinks h4{
+  text-decoration: none;
   padding-left: 50px;
   padding-right: 50px;
 }

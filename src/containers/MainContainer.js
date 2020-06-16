@@ -11,18 +11,18 @@ class MainContainer extends Component {
     render() { 
         return (  
            <div>
-               
-               <SearchBar 
+                <SearchBar 
                     searchArticle={this.props.searchArticle}
                     search={this.props.search}
                 />
-               <NavBar />
-               {this.props.articles.map(article => 
-               <Article 
-               key={article.id}
-               {...article}
-               />)}
 
+                <NavBar />
+
+                {this.props.articles.map(article => 
+                    <Article 
+                    key={article.id}
+                    {...article}
+                />)}
            </div> 
         );
     }
