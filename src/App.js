@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
 import MainContainer from './containers/MainContainer'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const articleUrl = 'http://localhost:3001/articles'
 const userUrl = 'http://localhost:3001/users'
@@ -33,12 +34,18 @@ returnFilteredArticles = () => {
     // console.log(this.state.articles)
     return (  
       <div>
-        
-        <MainContainer 
-        searchArticle={this.searchArticle}
-        search={this.state.search}
-        articles={this.returnFilteredArticles()} 
-        />
+        <Router>
+          <Route 
+            exact path="/home" 
+            render={routerProps =>
+              <MainContainer 
+                {...routerProps}
+                searchArticle={this.searchArticle}
+                search={this.state.search}
+                articles={this.returnFilteredArticles()}
+            />}
+          />
+        </Router>
       </div>
     );
   }

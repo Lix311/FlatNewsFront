@@ -6,7 +6,7 @@ const Article = (props) => {
             <h4>{props.title}</h4>
                 <p>{props.author}</p>
                 <h6>{props.description}</h6>
-                <img className='articleImage' src={props.urlToImage}/>
+                <img className='articleImage' src={props.urlToImage} alt={props.title}/>
         </div>
     );
 }
