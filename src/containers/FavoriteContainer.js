@@ -5,7 +5,11 @@ class FavoriteContainer extends React.Component{
     render(){
         return(
             <div>
-                {this.props.articles}
+                {this.props.articles.map(article => <Article 
+                key={article.id} 
+                article={article}
+                removeFromFavs={this.props.removeFromFavs}
+            />)}
             </div>
         )
     }   

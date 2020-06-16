@@ -22,6 +22,7 @@ class MainContainer extends Component {
                         render={()=> 
                             <ArticleContainer 
                                 articles={this.props.articles}
+                                addToFavs={this.props.addToFavs}
                             />
                         }
                     />
@@ -30,6 +31,7 @@ class MainContainer extends Component {
                         render={()=> 
                             <FavoriteContainer 
                                 articles={this.props.favoriteArticles}
+                                removeFromFavs={this.props.removeFromFavs}
                             />
                         }
                     />

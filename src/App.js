@@ -34,10 +34,24 @@ returnFilteredArticles = () => {
   return newArticles 
 }
 
+addToFavs = (article) => {
+
+  this.setState({favoriteArticles: [...this.state.favoriteArticles, article]})
+}
+
+removeFromFavs = (article) => {
+  console.log('removing...', article)
+  this.setState({favoriteArticles: this.state.favoriteArticles.filter(a => a !== article )})
+}
+
+
+
   render() { 
     return (  
       <div>
         <MainContainer 
+          removeFromFavs={this.removeFromFavs}
+          addToFavs={this.addToFavs}
           favoriteArticles={this.state.favoriteArticles}
           searchArticle={this.searchArticle}
           search={this.state.search}
