@@ -10,13 +10,18 @@ const userUrl = 'http://localhost:3001/users'
 class App extends Component {
   state = {  
     articles: [],
-    search: ''
+    favoriteArticles: [],
+    search: '',
+    userInfo: []
   }
 
 componentDidMount(){
   fetch(articleUrl)
   .then(res => res.json())
-  .then( data => this.setState({articles: data}))
+  .then(data => this.setState({articles: data}))
+  fetch(userUrl)
+  .then(res => res.json())
+  .then(data => this.setState({userInfo: data}))
 }
 
 searchArticle = (event) => {
@@ -31,21 +36,15 @@ returnFilteredArticles = () => {
 }
 
   render() { 
-    // console.log(this.state.articles)
     return (  
       <div>
-        <Router>
-          <Route 
-            exact path="/home" 
-            render={routerProps =>
-              <MainContainer 
-                {...routerProps}
-                searchArticle={this.searchArticle}
-                search={this.state.search}
-                articles={this.returnFilteredArticles()}
-            />}
-          />
-        </Router>
+        <MainContainer 
+          favoriteArticles={this.state.favoriteArticles}
+          searchArticle={this.searchArticle}
+          search={this.state.search}
+          articles={this.returnFilteredArticles()}
+          userInfo={this.state.userInfo}
+        /> 
       </div>
     );
   }

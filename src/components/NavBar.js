@@ -13,9 +13,8 @@ class NavBar extends Component {
                     <h1 className='title'>FlatNews</h1>
                     <div className='navlinks'>
                         <Link to="/home"> <h4>Home</h4> </Link>
-                        <h4>My Articles</h4>
+                        <Link to="/favorites"> <h4>My Articles</h4> </Link>
                         <h4>My Profile</h4>
-                        
                     </div>
                     
                 </div>
