@@ -5,23 +5,28 @@ import Profile from '../components/Profile'
 import ArticleContainer from './ArticleContainer';
 import FavoriteContainer from './FavoriteContainer'
 import { Route, Switch } from 'react-router-dom'
+import Login from '../components/Login'
 
 class MainContainer extends Component {
     
     render() { 
         return (  
            <div>
+                <NavBar 
+                    loggedIn={this.props.loggedIn}
+                    currentUser={this.props.currentUser}
+                />
                 <SearchBar 
                     searchArticle={this.props.searchArticle}
                     search={this.props.search}
                 />
-                <NavBar />
                 <Switch>
                     <Route 
                         exact path="/home" 
                         render={()=> 
                             <ArticleContainer 
                                 articles={this.props.articles}
+                                addToFavs={this.props.addToFavs}
                             />
                         }
                     />
@@ -30,6 +35,7 @@ class MainContainer extends Component {
                         render={()=> 
                             <FavoriteContainer 
                                 articles={this.props.favoriteArticles}
+                                removeFromFavs={this.props.removeFromFavs}
                             />
                         }
                     />
@@ -37,10 +43,19 @@ class MainContainer extends Component {
                         exact path="/profile" 
                         render={()=> 
                             <Profile 
-                                userInfo={this.props.userInfo}
+                            currentUser={this.props.currentUser}
                             />
                         }
                     />
+                    <Route 
+                    exact path="/login" 
+                    render={()=> 
+                        <Login
+                            userInfo={this.props.userInfo}
+                            login={this.props.login}
+                        />
+                    }
+                />
                 </Switch>
            </div> 
         );
