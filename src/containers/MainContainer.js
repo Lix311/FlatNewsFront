@@ -43,6 +43,8 @@ class MainContainer extends Component {
                         exact path="/profile" 
                         render={()=> 
                             <Profile 
+                            typeUrl={this.props.typeUrl}
+                            changeTypeUrl={this.props.changeTypeUrl}
                             currentUser={this.props.currentUser}
                             />
                         }

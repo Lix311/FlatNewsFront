@@ -21,7 +21,8 @@ class App extends Component {
     search: '',
     userInfo: [],
     currentUser: '',
-    loggedIn: false
+    loggedIn: false,
+    newsType: 'tech'
   }
 
   componentDidMount(){
@@ -77,11 +78,16 @@ class App extends Component {
     }
   }
 
+  changeTypeUrl = (value) => {
+    this.setState({newsType: value})
+  }
+
   render() { 
-    console.log(this.state.articles)
     return (  
       <div>
         <MainContainer 
+          typeUrl={this.state.typeUrl}
+          changeTypeUrl={this.changeTypeUrl}
           currentUser={this.state.currentUser}
           loggedIn={this.state.loggedIn}
           login={this.loginHandler}
