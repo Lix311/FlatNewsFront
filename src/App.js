@@ -41,7 +41,7 @@ class App extends Component {
   fetchLatestAPIArticles = () => {
     const baseUrl = `https://newsapi.org/v2/everything?q=${this.state.newsType}&apiKey=cdb0beec98514ab6b5dfc4ccd7a83953`
     if(this.state.newsType === "trending"){
-      fetch(`${trendingUrl}`)
+      fetch(trendingUrl)
       .then(res => res.json())
       .then(data => {
         let currentArticles = [...this.state.articles]
@@ -52,14 +52,12 @@ class App extends Component {
         })
       })
     } else {
-      fetch(`${baseUrl}`)
+      
+      fetch(baseUrl)
       .then(res => res.json())
       .then(data => {
-        let currentArticles = [...this.state.articles]
-        let apiArticles = [...data.articles]
-        let filteredArticlesList = apiArticles.filter(article => !currentArticles.includes(article))
-        this.setState({
-          articles: filteredArticlesList
+       this.setState({
+          articles: data.articles
         })
       })
     }
@@ -97,6 +95,7 @@ class App extends Component {
 
   changeTypeUrl = (value) => {
     this.setState({newsType: value})
+    this.fetchLatestAPIArticles()
   }
 
   render() { 
