@@ -2,16 +2,13 @@ import React from 'react';
 
 const SearchBar = (props) => {
     return (  
-        <div>
-            <h3>SearchBar</h3>
+        <div className="searchBar">
             <input 
-                placeholder='Search Article' 
+                placeholder='Search for an article' 
                 type='text' 
                 name='search'
                 value={props.search}
                 onChange={(event) => props.searchArticle(event)}
-                
-                
             />
         </div>
     );

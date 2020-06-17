@@ -6,7 +6,7 @@ class NavBar extends Component {
     render() { 
         return (  
             <React.Fragment>
-            <img src="https://i.ibb.co/YhHyNDp/Logo-Makr-5g-G9-L1.png"/>
+            <img className="logo" src="https://i.ibb.co/YhHyNDp/Logo-Makr-5g-G9-L1.png"/>
             <div className='navbar'>
                 <div className='navlinks'>
                     <Link to="/home"> <h4>Home</h4> </Link>

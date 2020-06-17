@@ -3,7 +3,7 @@ import Article from '../components/Article'
 
 const ArticleContainer = (props) =>  {
     return(
-        <div>
+        <div className="articleContainer">
             {props.articles.map(article => <Article 
                 key={article.title} 
                 article={article}
