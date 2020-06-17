@@ -108,7 +108,6 @@ h2 {
 
 .articleContainer{
   padding: 20px;
-  background-color:;
 }
 
 .articleImage{
@@ -136,6 +135,10 @@ h2 {
 .infoContainer button:hover{
   cursor: pointer;
   -webkit-filter: brightness(60%);
+}
+
+.loginForm{
+  margin-left: 20px;
 }
 
 

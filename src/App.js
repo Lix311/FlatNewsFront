@@ -7,10 +7,8 @@ const articleUrl = 'http://localhost:3001/articles'
 const userUrl = 'http://localhost:3001/users'
 
 
-// const baseUrl = 'https://newsapi.org/v2/'
-// const typeUrl = `everything?q=${this.state.newsType}&apiKey=cdb0beec98514ab6b5dfc4ccd7a83953`
+const trendingUrl = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=cdb0beec98514ab6b5dfc4ccd7a83953'
 
-// const trendingUrl = 'top-headlines?country=us&apiKey=cdb0beec98514ab6b5dfc4ccd7a83953'
 const urlHeaders = {
   'Content-Type': 'application/json',
   'Accepts': 'application/json'
@@ -25,7 +23,7 @@ class App extends Component {
     userInfo: [],
     currentUser: '',
     loggedIn: false,
-    newsType: 'tech'
+    newsType: 'trending'
   }
 
   
@@ -41,21 +39,30 @@ class App extends Component {
   }
 
   fetchLatestAPIArticles = () => {
-    const baseUrl = 'https://newsapi.org/v2/'
-    const typeUrl = `everything?q=${this.state.newsType}&apiKey=cdb0beec98514ab6b5dfc4ccd7a83953`
-    const trendingUrl = 'top-headlines?country=us&apiKey=cdb0beec98514ab6b5dfc4ccd7a83953'
-
-    console.log(baseUrl,typeUrl,trendingUrl)
-    fetch(`${baseUrl}${trendingUrl}`)
-    .then(res => res.json())
-    .then(data => {
-      let currentArticles = [...this.state.articles]
-      let apiArticles = [...data.articles]
-      let filteredArticlesList = apiArticles.filter(article => !currentArticles.includes(article))
-      this.setState({
-        articles: filteredArticlesList
+    const baseUrl = `https://newsapi.org/v2/everything?q=${this.state.newsType}&apiKey=cdb0beec98514ab6b5dfc4ccd7a83953`
+    if(this.state.newsType === "trending"){
+      fetch(`${trendingUrl}`)
+      .then(res => res.json())
+      .then(data => {
+        let currentArticles = [...this.state.articles]
+        let apiArticles = [...data.articles]
+        let filteredArticlesList = apiArticles.filter(article => !currentArticles.includes(article))
+        this.setState({
+          articles: filteredArticlesList
+        })
       })
-    })
+    } else {
+      fetch(`${baseUrl}`)
+      .then(res => res.json())
+      .then(data => {
+        let currentArticles = [...this.state.articles]
+        let apiArticles = [...data.articles]
+        let filteredArticlesList = apiArticles.filter(article => !currentArticles.includes(article))
+        this.setState({
+          articles: filteredArticlesList
+        })
+      })
+    }
   }
 
   searchArticle = (event) => {
