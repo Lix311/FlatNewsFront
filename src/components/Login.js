@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 
 class Login extends Component {
     state = {  
@@ -50,7 +51,7 @@ class Login extends Component {
                         />
                     <br/>
                     <br/>
-                        <input type='submit' value='Login' />
+                    <Link to="/home"><input type='submit' value='Login' /></Link>
                     </form>
             </div>
         );
