@@ -7,9 +7,16 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 const articleUrl = 'http://localhost:3001/articles'
 const userUrl = 'http://localhost:3001/users'
 
+const apiUrl = ' https://newsapi.org/v2/top-headlines?country=us&apiKey=cdb0beec98514ab6b5dfc4ccd7a83953'
+const urlHeaders = {
+  'Content-Type': 'application/json',
+  'Accepts': 'application/json'
+}
+
 class App extends Component {
   state = {  
     articles: [],
+    apiArticles: [],
     favoriteArticles: [],
     search: '',
     userInfo: []
@@ -22,6 +29,18 @@ componentDidMount(){
   fetch(userUrl)
   .then(res => res.json())
   .then(data => this.setState({userInfo: data}))
+  this.persistArticlesToBackEnd()
+}
+
+persistArticlesToBackEnd = () => {
+  fetch(apiUrl)
+  .then(res => res.json())
+  .then(data => {
+    let currentArticles = [...data.articles,...this.state.articles]
+    this.setState({
+      articles: currentArticles
+    })
+  })
 }
 
 searchArticle = (event) => {
