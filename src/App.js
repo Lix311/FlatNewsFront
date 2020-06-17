@@ -6,6 +6,7 @@ import MainContainer from './containers/MainContainer'
 const articleUrl = 'http://localhost:3001/articles'
 const userUrl = 'http://localhost:3001/users'
 
+const typeUrl = 'https://newsapi.org/v2/everything?q=tech&apiKey=cdb0beec98514ab6b5dfc4ccd7a83953'
 const apiUrl = ' https://newsapi.org/v2/top-headlines?country=us&apiKey=cdb0beec98514ab6b5dfc4ccd7a83953'
 const urlHeaders = {
   'Content-Type': 'application/json',
@@ -34,7 +35,7 @@ class App extends Component {
   }
 
   fetchLatestAPIArticles = () => {
-    fetch(apiUrl)
+    fetch(typeUrl)
     .then(res => res.json())
     .then(data => {
       let currentArticles = [...this.state.articles]
