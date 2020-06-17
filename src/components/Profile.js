@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 class Profile extends React.Component{
@@ -36,7 +37,8 @@ class Profile extends React.Component{
                                 <option value="sports">Sports</option>
                             </select>
                         </label>
-                        <input type="submit" value="Submit" />
+                        <Link to="/home"><input type="submit" value="Submit"/></Link>
+                        
                     </form>
                 </React.Fragment>
                 : null}
