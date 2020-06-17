@@ -40,7 +40,7 @@ class MainContainer extends Component {
                         exact path="/profile" 
                         render={()=> 
                             <Profile 
-                                userInfo={this.props.userInfo}
+                            currentUser={this.props.currentUser}
                             />
                         }
                     />

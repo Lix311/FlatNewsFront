@@ -12,7 +12,8 @@ class App extends Component {
     favoriteArticles: [],
     search: '',
     userInfo: [],
-    loggedIn: false 
+    loggedIn: false,
+    currentUser: '' 
   }
 
 componentDidMount(){
@@ -50,16 +51,18 @@ loginHandler = (username,password) => {
 
   if (matchingUser.pword === password){
     this.setState({loggedIn: !this.state.loggedIn})
+    this.setState({currentUser: matchingUser})
   }
 }
 
 
 
+
   render() { 
-   console.log(this.state.userInfo)
     return (  
       <div>
         <MainContainer 
+          currentUser={this.state.currentUser}
           loggedIn={this.state.loggedIn}
           login={this.loginHandler}
           removeFromFavs={this.removeFromFavs}
