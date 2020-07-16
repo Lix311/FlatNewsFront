@@ -1,3 +1,9 @@
+# Flat News
+
+Flat News aims at delivering the latest headline articles right to your desktop in as few clicks as possible. Our interface is simple and clean. Even if you aren't a member, you can still browse our website. However, as a member, you're able to customize what kinds of headline articles you want to see by topic. 
+
+The tech stack we used was a Ruby on Rails back-end and a React.js front-end.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
